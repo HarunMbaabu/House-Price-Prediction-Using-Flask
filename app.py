@@ -15,8 +15,7 @@ index_dict = pickle.load(pkl_file)
 def home():
     return render_template('index.html')
 
-
-@app.route('/predict',methods=['POST'])
+@app.route('/predict',methods=['POST', "GET"])
 def predict():
 
     if request.method=='POST':
@@ -47,7 +46,7 @@ def predict():
     prediction = model.predict(new)
     #print(prediction)
 
-    return render_template('index.html', Predict_score ='Your house estimate price is  ₹ {} lakhs'.format(prediction))
+    return render_template('index.html', Predict_score ='Your house estimate price is Kenyan Shilling {} millions'.format(prediction))
 
 if __name__ == "__main__":
     app.run(debug=True)
